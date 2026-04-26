@@ -43,10 +43,10 @@
     <div class="flex flex-wrap justify-center gap-3 mb-8">
         
         <label id="importBtn" class="font-medium py-2 px-5 rounded-lg shadow transition-all duration-200 text-white cursor-pointer inline-flex items-center justify-center gap-2" style="background-color: #008e2d;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
             </svg>
-            📂 Importer CSV
+            Importer CSV
             <input type="file" id="fileUpload" accept=".csv,.txt" style="display: none;">
         </label>
         
@@ -91,9 +91,14 @@
 
     <div id="dynamicZone"></div>
 
+
+
     <div id="resultZone" style="display: none;" class="rounded-xl p-6 mt-6 shadow-md" style="background-color: #eef2f0; border: 1px solid #9CD5FF;">
-        <div class="text-xl font-bold pl-3 mb-4 flex items-center gap-2" style="color: #355872; border-left-width: 4px; border-left-color: #7AAACE;">
-            <span>🏆</span> Résultats PROMETHEE II
+        <div class="text-xl font-bold pl-3 mb-4 flex items-center gap-2" style="color: #36064D; border-left-width: 4px; border-left-color: #DA4848;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
+            </svg>
+            Résultats
         </div>
         <div id="results"></div>
     </div>
@@ -657,7 +662,16 @@
                              <td class="border p-2 font-bold" style="border-color:#9CD5FF; color:#355872;">${phiNet[i].toFixed(4)}</td>
                             </tr>`;
         }
-        htmlRes += `</tbody></table></div><div class="rounded-lg p-4 shadow-inner" style="background-color: white; border: 1px solid #9CD5FF;"><strong class="text-lg block mb-3" style="color:#355872;">🏅 Classement final (PROMETHEE II) :</strong><div class="flex flex-wrap gap-3">`;
+        htmlRes += `</tbody>
+                    </table>
+                    </div>
+                    <div class="text-xl font-bold pl-3 mb-4 flex items-center gap-2" style="color: #36064D; border-left-width: 4px; border-left-color: #DA4848;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                    </svg>
+                    Classement final
+                    </div>`;
+                
         for(let r=0; r<indices.length; r++) {
             htmlRes += `<span class="text-white rounded-full px-4 py-2 shadow-md" style="background-color: #7AAACE;">${r+1}. ${actions[indices[r]]} (Φ = ${phiNet[indices[r]].toFixed(4)})</span> `;
         }
