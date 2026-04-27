@@ -39,7 +39,7 @@
         <p class="mt-1" style="color: #355872/80;">Méthode d'aide multicritère à la décision</p>
     </div>
 
-    <!-- Button group -->
+    
     <div class="flex flex-wrap justify-center gap-3 mb-8">
         
         <label id="importBtn" class="font-medium py-2 px-5 rounded-lg shadow transition-all duration-200 text-white cursor-pointer inline-flex items-center justify-center gap-2" style="background-color: #008e2d;">
@@ -58,7 +58,7 @@
         </button>
     </div>
 
-    <!-- Configuration card -->
+    <!-- Configuration -->
     <div class="rounded-xl border p-5 mb-6 shadow-sm" style="background-color: #e0efff;">
         <div class="text-xl font-bold pl-3 mb-4 flex items-center gap-2" style="color: #36064D; border-left-width: 4px; border-left-color: #DA4848;">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <!-- Info message for CSV format -->
+   
     <div id="csvFormatHint" class="text-xs text-gray-500 mb-3 text-center" style="display: none;"></div>
 
     <div id="dynamicZone"></div>
@@ -328,7 +328,7 @@
                     }
                 }
                 
-                // Fill types
+                // types te3 max w min...
                 if (metadata.types.length === nbC) {
                     for(let j = 0; j < nbC; j++) {
                         let sel = document.getElementById(`type_${j}`);
@@ -376,7 +376,7 @@
                 hint.style.padding = '8px';
                 hint.style.borderRadius = '8px';
                 hint.style.color = '#155724';
-                hint.innerHTML = '✅ Fichier complet importé avec succès! Tous les paramètres sont chargés.';
+                hint.innerHTML = ' Fichier complet importé avec succès! Tous les paramètres sont chargés.';
                 setTimeout(() => {
                     hint.style.display = 'none';
                 }, 3000);
@@ -452,7 +452,7 @@
                 hint.style.padding = '8px';
                 hint.style.borderRadius = '8px';
                 hint.style.color = '#155724';
-                hint.innerHTML = '✅ Fichier CSV simple importé! Poids égaux par défaut. Ajustez les paramètres si besoin.';
+                hint.innerHTML = ' Fichier CSV simple importé! Poids égaux par défaut. Ajustez les paramètres si besoin.';
                 setTimeout(() => {
                     hint.style.display = 'none';
                 }, 3000);
@@ -676,14 +676,14 @@
         for(let r=0; r<indices.length; r++) {
             htmlRes += `<span class="text-white rounded-full px-4 py-2 shadow-md" style="background-color: #7AAACE;">${r+1}. ${actions[indices[r]]} (Φ = ${phiNet[indices[r]].toFixed(4)})</span> `;
         }
-        htmlRes += `</div><p class="mt-4 text-sm" style="color:#355872;">✅ La meilleure action est <strong style="color: #355872;">${actions[indices[0]]}</strong> (Φ net le plus élevé).</p></div>`;
+        htmlRes += `</div><p class="mt-4 text-sm" style="color:#355872;">La meilleure action est <strong style="color: #355872;">${actions[indices[0]]}</strong> (Φ net le plus élevé).</p></div>`;
         
         document.getElementById('results').innerHTML = htmlRes;
         document.getElementById('resultZone').style.display = 'block';
         window.scrollTo({ top: document.getElementById('resultZone').offsetTop, behavior: 'smooth' });
     }
 
-    // Initialize event listeners
+    
     document.getElementById('configBtn').addEventListener('click', () => genererInterfaceAvecPredef(true));
     document.getElementById('resetBtn').addEventListener('click', () => genererInterfaceAvecPredef(true));
     document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
