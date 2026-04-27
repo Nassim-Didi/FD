@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROMETHEE II - Aide multicritère à la décision</title>
-    <!-- Tailwind CSS v3 -->
+    <!-- partie Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -54,7 +54,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
-            Réinitialiser
+
         </button>
     </div>
 
@@ -197,7 +197,7 @@
         }
     }
 
-    // Enhanced CSV import with full parameter support
+    // importation te3 csv
     function importFromCSV(csvText) {
         const lines = csvText.trim().split(/\r?\n/);
         if (lines.length < 2) {
@@ -224,11 +224,11 @@
             return result;
         }
         
-        // Check if this is a full format file
+        
         const isFullFormat = lines[0].toLowerCase().startsWith('#promethee');
         
         if (isFullFormat) {
-            // FULL FORMAT with metadata
+            
             let section = '';
             let metadata = {
                 actions: [],
@@ -294,14 +294,14 @@
                     actions[i] = metadata.actions[i];
                 }
                 
-                // Fill criteria
+                
                 for(let j = 0; j < nbC; j++) {
                     let inp = document.getElementById(`critereName_${j}`);
                     if(inp) inp.value = metadata.criteres[j];
                     criteres[j] = metadata.criteres[j];
                 }
                 
-                // Fill performance matrix
+                
                 for(let i = 0; i < nbA; i++) {
                     for(let j = 0; j < nbC; j++) {
                         let inp = document.getElementById(`perf_${i}_${j}`);
@@ -312,7 +312,7 @@
                     }
                 }
                 
-                // Fill weights
+                
                 if (metadata.poids.length === nbC) {
                     let sum = metadata.poids.reduce((a,b) => a + b, 0);
                     if (Math.abs(sum - 1) > 0.01) {
@@ -669,6 +669,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
                     </svg>
+
                     Classement final
                     </div>`;
                 
